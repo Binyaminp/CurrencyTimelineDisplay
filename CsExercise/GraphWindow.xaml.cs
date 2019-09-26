@@ -80,7 +80,7 @@ namespace CsExercise
                     mainCanvas.Children.Add(newLine);
 
                     var curLabel = new TextBlock();
-                    curLabel.Text = Math.Round(minCur.currency + i * curInterval, 2).ToString();
+                    curLabel.Text = Math.Round(maxCur.currency - i * curInterval, 4).ToString();
                     Canvas.SetLeft(curLabel, colWidth - 50);
                     Canvas.SetTop(curLabel, i * rowHeight);
                     mainCanvas.Children.Add(curLabel);
@@ -101,7 +101,7 @@ namespace CsExercise
                     ellipse.Fill = Brushes.ForestGreen;
                     ellipse.Stroke = Brushes.ForestGreen;
                     var x = (colWidth + (curDays / dayNum) * (mainCanvas.ActualWidth - colWidth));
-                    var y = ((curDiff / diff) * (mainCanvas.ActualHeight - rowHeight));
+                    var y = (mainCanvas.ActualHeight - rowHeight) - ((curDiff / diff) * (mainCanvas.ActualHeight - rowHeight));
                     Canvas.SetLeft(ellipse, x - (ellipse.Width / 2));
                     Canvas.SetTop(ellipse, y - (ellipse.Height / 2));
 
